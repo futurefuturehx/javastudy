@@ -1,0 +1,16 @@
+package study2;
+//引入Scanner类
+import java.util.Scanner;
+public class ScannerDemo {
+	public static void main(String[]args) {
+		//将键入的值添加到构造方法 构造一个Scanner对象
+		Scanner scan1=new Scanner(System.in);
+		System.out.println("nextline方式接收:");
+		//到达判断标志则输出
+		//next()的判断依据是空格 而nextline()的判断依据是enter键
+		if(scan1.hasNextLine()) {
+			String str1=scan1.nextLine();
+			System.out.println("输出的数据为:"+str1);
+		}
+	}
+}

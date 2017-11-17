@@ -1,0 +1,6 @@
+package study2;
+//接口的精髓在于 实现接口的类不需要额外声明函数 减少代码量
+public interface Animal {
+	public void eat();
+	public void travel();
+}
