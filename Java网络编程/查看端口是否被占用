@@ -1,0 +1,26 @@
+import java.net.*;
+import java.io.*;
+public class Main{
+	//这边String[]args是一个参数数组 用来接收java运行参数
+	//Main是指这是程序的主入口
+	public static void main(String[]args) {
+		//双向通信连接的一端为一个socket
+		Socket Skt;
+		String host="localhost";
+		if(args.length>0) {
+			host=args[0];
+		}
+		for(int i=0;i<1024;i++) {
+			try {
+				System.out.println("查看"+i);
+				Skt=new Socket(host,i);
+				System.out.println("端口"+i+"已被使用");
+			}
+			catch(UnknownHostException e) {
+				System.out.println("Exception occured"+e);
+				break;
+			}
+			catch(IOException e) {
+			}
+		}
+	}

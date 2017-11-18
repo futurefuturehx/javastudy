@@ -14,5 +14,4 @@ public class 格式化时间 {
 		//输出
 		System.out.println(sdf.format(date));
 	}
-
 }
