@@ -1,0 +1,40 @@
+package study2;
+public class 冒泡排序 {
+	//用来接收用户传来的数组
+	//注意是int[]a不是int[a]
+	public static void bubbleSort(int[]a) {
+		//初始化一个temp用来交换两个数字用的
+		int temp;
+		//这边是为方便后面减 避免将最后已经排在正确位置的最大数重新参与对比
+		for(int i=1;i<a.length;i++) {
+			//两个一组对比交换不断往后滑动 第一次滑动到最后一位 第二次滑动到倒数第二位 因为前一次已经把最大的数放在了最后...以此类推
+			for(int j=0;j<a.length-i;j++) {
+				if (a[j]>a[j+1]) {
+					temp=a[j];
+					a[j]=a[j+1];
+					a[j+1]=temp;
+				}
+			}
+			System.out.println("第"+i+"步排序结果：");
+			for(int k=0;k<a.length;k++) {
+				System.out.println(""+a[k]);
+			}
+        System.out.println("\n");
+	}
+	}
+	public static void main(String[]args) {
+		//初始化一个数组空间
+		int[]shuzu=new int[10];
+		int i;
+		//初始化数组的内容
+		for(i=0;i<10;i++) {
+			shuzu[i]=(int)(100+Math.random()*(100+1));
+		}
+		//调用排序函数
+		bubbleSort(shuzu);
+		for(i=0;i<10;i++) {
+			System.out.print(shuzu[i]+" ");
+		}
+		System.out.print("\n");
+	}
+}

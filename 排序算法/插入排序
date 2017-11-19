@@ -1,0 +1,35 @@
+
+public class InsertSort {
+	public static void main(String[]args) {
+        //初始化一个初始的数组
+		int a[]= {3,1,5,7,2,4,9,6,10,8};
+        //生成对象之后才能使用这个类的动作方法
+		InsertSort obj=new InsertSort();
+		System.out.println("初始值:");
+        //调用排序方法
+		obj.insertSort(a);
+		System.out.println("\n排序后:");
+		obj.print(a);
+	}
+    //这个类的内置的print()方法的动作是将a[]数组输出
+	public void print(int a[]) {
+		for(int i=0;i<a.length;i++) {
+			System.out.print(a[i]+"");
+		}
+	}
+	public void insertSort(int[] a) {
+        //从头部第一个当做已经排序好的，把后面的一个一个地插入已经排序好的列表中去 就像打牌抓牌排大小一样
+		for(int i=1;i<a.length;i++) {
+			int j;
+            //这个x是待插入的元素
+			int x=a[i];
+            //当前位置往前看 看到几个比待插入的数大的就把 前面的数往后移动几位 相当于把待插入的数往前了几位
+            //注意：除了带插入的数字 都肯定已经排序好了
+			for(j=i;j>0&&x<a[j-1];j--) {
+				a[j]=a[j-1];
+			}
+            //这就是插入的动作 已经选好位置 开始插入
+			a[j]=x;
+		}
+	}
+}
