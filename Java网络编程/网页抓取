@@ -1,0 +1,31 @@
+//缓冲字符输入流
+import java.io.BufferedReader;
+//缓冲字符输出流
+import java.io.BufferedWriter;
+//FileWriter是被修饰类 BuffeedWriter是修饰类
+import java.io.FileWriter;
+//字符输入流
+import java.io.InputStreamReader;
+//URL是统一资源定位符 引入统一资源定位
+import java.net.URL;
+public class 网页抓取 {
+	public static void main(String[]args)throws Exception{
+    //使用统一资源定位类创建一个对象 并将构造起来
+		URL url=new URL("http://www.cnblogs.com");
+    //openStream()是用来打开一个通道 而BufferedReader通过这个通道来读取内容
+		BufferedReader reader=new BufferedReader(new InputStreamReader(url.openStream()));
+    //创建一个文件名为data.html
+		BufferedWriter writer =new BufferedWriter(new FileWriter("data.html"));
+		String line;
+    //如果读进来的有内容 那么在控制台和刚才创建的文件上都输出打印
+		while ((line=reader.readLine())!=null) {
+			System.out.println(line);
+			writer.write(line);
+			writer.newLine();
+		}
+    //关闭reader对象
+    //关闭writer对象
+		reader.close();
+		writer.close();
+	}
+}
